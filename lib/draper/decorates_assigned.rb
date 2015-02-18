@@ -33,7 +33,7 @@ module Draper
         decorated = "@decorated_#{variable}"
 
         define_method variable do
-          return instance_variable_get(decorated) if instance_variable_defined?(decorated)
+          return instance_variable_get(decorated) if instance_variable_get(decorated)
           instance_variable_set decorated, factory.decorate(instance_variable_get(undecorated), context_args: self)
         end
 
